@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738310805
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: Network I/O using Netty framework
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onlab-netty
+Bundle-SymbolicName: org.onosproject.onlab-netty
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.onlab.netty;uses:="com.esotericsoftware.kryo,com.eso
+ tericsoftware.kryo.io,com.google.common.util.concurrent,io.netty.buffer
+ ,io.netty.channel,io.netty.handler.codec";version="1.0.1"
+Import-Package: com.esotericsoftware.kryo;version="[3.0,4)",com.esoteric
+ software.kryo.io;version="[3.0,4)",com.google.common.base;version="[18.
+ 0,19)",com.google.common.cache;version="[18.0,19)",com.google.common.ut
+ il.concurrent;version="[18.0,19)",io.netty.bootstrap;version="[4.0,5)",
+ io.netty.buffer;version="[4.0,5)",io.netty.channel;version="[4.0,5)",io
+ .netty.channel.epoll;version="[4.0,5)",io.netty.channel.nio;version="[4
+ .0,5)",io.netty.channel.socket;version="[4.0,5)",io.netty.channel.socke
+ t.nio;version="[4.0,5)",io.netty.handler.codec;version="[4.0,5)",io.net
+ ty.util.concurrent;version="[4.0,5)",org.apache.commons.pool;version="[
+ 1.6,2)",org.apache.commons.pool.impl;version="[1.6,2)",org.onlab.util;v
+ ersion="[1.0,2)",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-2.3.0.201405100607

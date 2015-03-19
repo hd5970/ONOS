@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.net.intent.impl.ObjectiveTracker" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.net.intent.impl.ObjectiveTracker"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.intent.impl.ObjectiveTrackerService"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.net.intent.impl.ObjectiveTracker"/>
+        <reference name="topologyService" interface="org.onosproject.net.topology.TopologyService" cardinality="1..1" policy="static" bind="bindTopologyService" unbind="unbindTopologyService"/>
+        <reference name="resourceManager" interface="org.onosproject.net.resource.LinkResourceService" cardinality="1..1" policy="static" bind="bindResourceManager" unbind="unbindResourceManager"/>
+        <reference name="intentService" interface="org.onosproject.net.intent.IntentService" cardinality="0..1" policy="static" bind="bindIntentService" unbind="unbindIntentService"/>
+        <reference name="batchService" interface="org.onosproject.net.intent.IntentBatchService" cardinality="1..1" policy="static" bind="bindBatchService" unbind="unbindBatchService"/>
+    </scr:component>
+</components>

@@ -1,0 +1,30 @@
+{
+  "comments": [
+    "Add two devices and one link (auto), and two hosts.",
+    "Then update the two hosts (with IP address labels)."
+  ],
+  "title": "Simple Startup Scenario",
+  "params": {
+    "lastAuto": 0
+  },
+  "description": [
+    "Press 'H' to show hosts.",
+    "",
+    "Press '-' to fire further events.",
+    "",
+    "1. add device [8] (offline)",
+    "2. add device [3] (offline)",
+    "3. update device [8] (online, label3 change)",
+    "4. update device [3] (online, label3 change)",
+    "5. add link [3] --> [8]",
+    "6. add host (to [3])",
+    "7. add host (to [8])",
+    "8. update host[3] (IP now 10.0.0.13)",
+    "9. update host[8] (IP now 10.0.0.17)",
+    "10. update link (increase width, update props)",
+    "11. update link (reduce width, update props)",
+    "12. remove link",
+    "13. remove host (10.0.0.17)",
+    "13. remove device [3]"
+  ]
+}

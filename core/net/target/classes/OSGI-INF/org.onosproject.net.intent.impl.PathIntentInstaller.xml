@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.net.intent.impl.PathIntentInstaller" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.net.intent.impl.PathIntentInstaller"/>
+        <property name="service.pid" value="org.onosproject.net.intent.impl.PathIntentInstaller"/>
+        <reference name="intentManager" interface="org.onosproject.net.intent.IntentExtensionService" cardinality="1..1" policy="static" bind="bindIntentManager" unbind="unbindIntentManager"/>
+        <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+        <reference name="resourceService" interface="org.onosproject.net.resource.LinkResourceService" cardinality="1..1" policy="static" bind="bindResourceService" unbind="unbindResourceService"/>
+    </scr:component>
+</components>

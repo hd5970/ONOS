@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.store.device.impl.DeviceClockManager" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.device.impl.DeviceClockManager"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.device.DeviceClockService"/>
+            <provide interface="org.onosproject.net.device.DeviceClockProviderService"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.device.impl.DeviceClockManager"/>
+    </scr:component>
+</components>

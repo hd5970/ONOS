@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.store.trivial.impl.SimpleFlowRuleStore" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.trivial.impl.SimpleFlowRuleStore"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.flow.FlowRuleStore"/>
+            <provide interface="org.onosproject.store.Store"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.trivial.impl.SimpleFlowRuleStore"/>
+    </scr:component>
+</components>

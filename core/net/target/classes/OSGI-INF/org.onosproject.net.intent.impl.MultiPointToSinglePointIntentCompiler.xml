@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.net.intent.impl.MultiPointToSinglePointIntentCompiler" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.net.intent.impl.MultiPointToSinglePointIntentCompiler"/>
+        <property name="service.pid" value="org.onosproject.net.intent.impl.MultiPointToSinglePointIntentCompiler"/>
+        <reference name="intentManager" interface="org.onosproject.net.intent.IntentExtensionService" cardinality="1..1" policy="static" bind="bindIntentManager" unbind="unbindIntentManager"/>
+        <reference name="pathService" interface="org.onosproject.net.topology.PathService" cardinality="1..1" policy="static" bind="bindPathService" unbind="unbindPathService"/>
+    </scr:component>
+</components>

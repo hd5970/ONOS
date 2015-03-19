@@ -1,0 +1,56 @@
+{
+  "event": "showTraffic",
+  "sid": 1,
+  "payload": {
+    "paths": [
+      {
+        "class": "primary",
+        "traffic": false,
+        "links": [
+          "of:0000ffffffff0008/2-of:0000ffffffff0003/1"
+        ],
+        "labels": [""]
+      },
+      {
+        "class": "secondary",
+        "traffic": false,
+        "links": [
+          "of:0000ffffffff0003/9-of:0000ffffffff0007/2"
+        ],
+        "labels": [""]
+      },
+      {
+        "class": "animated",
+        "traffic": true,
+        "links": [
+          "of:0000ffffffff0008/4-of:0000ffffffff0007/1"
+        ],
+        "labels": [""]
+      },
+      {
+        "class": "animated optical",
+        "traffic": true,
+        "links": [
+          "of:0000ffffffff0008/4-of:0000ffffffffff08/1"
+        ],
+        "labels": [""]
+      },
+      {
+        "class": "secondary optical",
+        "traffic": false,
+        "links": [
+          "of:0000ffffffff0003/4-of:0000ffffffffff03/1"
+        ],
+        "labels": [""]
+      },
+      {
+        "class": "primary optical",
+        "traffic": false,
+        "links": [
+          "of:0000ffffffffff08/4-of:0000ffffffffff03/1"
+        ],
+        "labels": [""]
+      }
+    ]
+  }
+}

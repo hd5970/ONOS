@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.net.host.impl.HostManager" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.net.host.impl.HostManager"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.host.HostService"/>
+            <provide interface="org.onosproject.net.host.HostAdminService"/>
+            <provide interface="org.onosproject.net.host.HostProviderRegistry"/>
+            <provide interface="org.onosproject.net.provider.ProviderRegistry"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.net.host.impl.HostManager"/>
+        <reference name="store" interface="org.onosproject.net.host.HostStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+        <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+        <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+        <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    </scr:component>
+</components>

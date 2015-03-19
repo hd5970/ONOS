@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.store.cluster.impl.DistributedClusterStore" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.cluster.impl.DistributedClusterStore"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.cluster.ClusterStore"/>
+            <provide interface="org.onosproject.store.Store"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.cluster.impl.DistributedClusterStore"/>
+        <reference name="storeService" interface="org.onosproject.store.hz.StoreService" cardinality="1..1" policy="static" bind="bindStoreService" unbind="unbindStoreService"/>
+    </scr:component>
+</components>

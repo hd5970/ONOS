@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.store.flow.impl.ReplicaInfoManager" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.flow.impl.ReplicaInfoManager"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.store.flow.ReplicaInfoService"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.flow.impl.ReplicaInfoManager"/>
+        <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+        <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    </scr:component>
+</components>

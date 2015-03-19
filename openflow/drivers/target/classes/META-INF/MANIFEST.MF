@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738329454
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: ONOS OpenFlow switch drivers & factory
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-of-drivers
+Bundle-SymbolicName: org.onosproject.onos-of-drivers
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.onosproject.openflow.drivers;uses:="org.onosproject.
+ openflow.controller,org.onosproject.openflow.controller.driver,org.proj
+ ectfloodlight.openflow.protocol";version="1.0.1"
+Import-Package: org.jboss.netty.channel;version="[3.9,4)",org.onosprojec
+ t.openflow.controller;version="[1.0,2)",org.onosproject.openflow.contro
+ ller.driver;version="[1.0,2)",org.projectfloodlight.openflow.protocol;v
+ ersion="[1.0,2)",org.projectfloodlight.openflow.protocol.action;version
+ ="[1.0,2)",org.projectfloodlight.openflow.protocol.instruction;version=
+ "[1.0,2)",org.projectfloodlight.openflow.protocol.match;version="[1.0,2
+ )",org.projectfloodlight.openflow.protocol.oxm;version="[1.0,2)",org.pr
+ ojectfloodlight.openflow.types;version="[1.0,2)",org.projectfloodlight.
+ openflow.util;version="[1.0,2)",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-2.3.0.201405100607

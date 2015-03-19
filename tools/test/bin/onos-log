@@ -1,0 +1,34 @@
+#!/bin/bash
+# -----------------------------------------------------------------------------
+# Monitors remote ONOS log file on the specified node.
+# -----------------------------------------------------------------------------
+
+[ ! -d "$ONOS_ROOT" ] && echo "ONOS_ROOT is not defined" >&2 && exit 1
+. $ONOS_ROOT/tools/build/envDefaults
+. $ONOS_ROOT/tools/test/bin/find-node.sh
+
+less=0
+[ "$1" = "-l" ] && shift && less=1
+
+remote=$(find_node $1)
+
+remote=$ONOS_USER@${remote:-$OCI}
+instance=$2
+
+[ -n "$instance" ] && \
+    LOG=$ONOS_INSTALL_DIR/$KARAF_DIST/instances/$instance/data/log/karaf.log || \
+    LOG=$ONOS_INSTALL_DIR/log/karaf.log
+
+
+if [ $less -eq 1 ]; then
+    ssh -t $remote "less $LOG"
+else
+    trap "ssh $remote 'ps -ef | grep \"tail -n 512\" | grep -v grep | cut -c10-15 | xargs kill'" EXIT
+    ssh -t $remote "
+    while true; do
+        echo ==================================================================
+        [ ! -f $LOG ] && sleep 2 && continue
+        tail -n 512 --follow=name $LOG --sleep-interval 2
+    done
+    "
+fi

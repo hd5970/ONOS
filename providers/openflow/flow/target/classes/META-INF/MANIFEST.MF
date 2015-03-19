@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738330028
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: ONOS OpenFlow protocol flow provider
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-of-provider-flow
+Bundle-SymbolicName: org.onosproject.onos-of-provider-flow
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Import-Package: com.google.common.base;version="[18.0,19)",com.google.co
+ mmon.collect;version="[18.0,19)",org.jboss.netty.util;version="[3.9,4)"
+ ,org.onlab.packet,org.onlab.util,org.onosproject.core;version="[1.0,2)"
+ ,org.onosproject.net;version="[1.0,2)",org.onosproject.net.flow;version
+ ="[1.0,2)",org.onosproject.net.flow.criteria;version="[1.0,2)",org.onos
+ project.net.flow.instructions;version="[1.0,2)",org.onosproject.net.pro
+ vider;version="[1.0,2)",org.onosproject.net.topology;version="[1.0,2)",
+ org.onosproject.openflow.controller;version="[1.0,2)",org.projectfloodl
+ ight.openflow.protocol;version="[1.0,2)",org.projectfloodlight.openflow
+ .protocol.action;version="[1.0,2)",org.projectfloodlight.openflow.proto
+ col.errormsg;version="[1.0,2)",org.projectfloodlight.openflow.protocol.
+ instruction;version="[1.0,2)",org.projectfloodlight.openflow.protocol.m
+ atch;version="[1.0,2)",org.projectfloodlight.openflow.protocol.oxm;vers
+ ion="[1.0,2)",org.projectfloodlight.openflow.types;version="[1.0,2)",or
+ g.slf4j;version="[1.7,2)"
+Require-Capability: osgi.service;effective:=active;filter:="(objectClass
+ =org.onosproject.openflow.controller.OpenFlowController)",osgi.service;
+ effective:=active;filter:="(objectClass=org.onosproject.net.flow.FlowRu
+ leProviderRegistry)",osgi.service;effective:=active;filter:="(objectCla
+ ss=org.onosproject.net.topology.TopologyService)",osgi.ee;filter:="(&(o
+ sgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/org.onosproject.provider.of.flow.impl.OpenFl
+ owRuleProvider.xml
+Tool: Bnd-2.3.0.201405100607

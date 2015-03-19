@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738311131
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: Fast network I/O using Java NIO
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onlab-nio
+Bundle-SymbolicName: org.onosproject.onlab-nio
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.onlab.nio;uses:="org.onlab.util,org.slf4j";version="
+ 1.0.1"
+Import-Package: com.google.common.base;version="[18.0,19)",org.onlab.uti
+ l;version="[1.0,2)",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-2.3.0.201405100607

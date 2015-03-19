@@ -1,0 +1,16 @@
+#!/bin/bash
+# -----------------------------------------------------------------------------
+# Checks the logs of the remote ONOS instance and makes sure they are clean.
+# -----------------------------------------------------------------------------
+
+[ ! -d "$ONOS_ROOT" ] && echo "ONOS_ROOT is not defined" >&2 && exit 1
+. $ONOS_ROOT/tools/build/envDefaults
+
+remote=$ONOS_USER@${1:-$OCI}
+instance=$2
+
+[ -n "$instance" ] && \
+    LOG=$ONOS_INSTALL_DIR/$KARAF_DIST/instances/$instance/data/log/karaf.log || \
+    LOG=$ONOS_INSTALL_DIR/log/karaf.log
+
+ssh $remote "egrep 'ERROR|Exception' $LOG"

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.store.trivial.impl.SimpleLinkStore" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.trivial.impl.SimpleLinkStore"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.link.LinkStore"/>
+            <provide interface="org.onosproject.store.Store"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.trivial.impl.SimpleLinkStore"/>
+    </scr:component>
+</components>

@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738329555
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: ONOS OpenFlow protocol device provider
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-of-provider-device
+Bundle-SymbolicName: org.onosproject.onos-of-provider-device
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Import-Package: com.google.common.base;version="[18.0,19)",org.onlab.pac
+ ket,org.onosproject.net;version="[1.0,2)",org.onosproject.net.device;ve
+ rsion="[1.0,2)",org.onosproject.net.provider;version="[1.0,2)",org.onos
+ project.openflow.controller;version="[1.0,2)",org.projectfloodlight.ope
+ nflow.protocol;version="[1.0,2)",org.projectfloodlight.openflow.types;v
+ ersion="[1.0,2)",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.service;effective:=active;filter:="(objectClass
+ =org.onosproject.net.device.DeviceProviderRegistry)",osgi.service;effec
+ tive:=active;filter:="(objectClass=org.onosproject.openflow.controller.
+ OpenFlowController)",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/org.onosproject.provider.of.device.impl.Open
+ FlowDeviceProvider.xml
+Tool: Bnd-2.3.0.201405100607

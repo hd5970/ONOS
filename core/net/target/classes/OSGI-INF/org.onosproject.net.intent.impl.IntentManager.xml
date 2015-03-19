@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.net.intent.impl.IntentManager" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.net.intent.impl.IntentManager"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.intent.IntentService"/>
+            <provide interface="org.onosproject.net.intent.IntentExtensionService"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.net.intent.impl.IntentManager"/>
+        <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+        <reference name="store" interface="org.onosproject.net.intent.IntentStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+        <reference name="batchService" interface="org.onosproject.net.intent.IntentBatchService" cardinality="1..1" policy="static" bind="bindBatchService" unbind="unbindBatchService"/>
+        <reference name="trackerService" interface="org.onosproject.net.intent.impl.ObjectiveTrackerService" cardinality="1..1" policy="static" bind="bindTrackerService" unbind="unbindTrackerService"/>
+        <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+        <reference name="flowRuleService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowRuleService" unbind="unbindFlowRuleService"/>
+    </scr:component>
+</components>

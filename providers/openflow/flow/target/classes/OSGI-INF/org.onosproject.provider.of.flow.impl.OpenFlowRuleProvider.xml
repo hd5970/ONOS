@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.provider.of.flow.impl.OpenFlowRuleProvider" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.provider.of.flow.impl.OpenFlowRuleProvider"/>
+        <property name="service.pid" value="org.onosproject.provider.of.flow.impl.OpenFlowRuleProvider"/>
+        <reference name="providerRegistry" interface="org.onosproject.net.flow.FlowRuleProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+        <reference name="controller" interface="org.onosproject.openflow.controller.OpenFlowController" cardinality="1..1" policy="static" bind="bindController" unbind="unbindController"/>
+        <reference name="topologyService" interface="org.onosproject.net.topology.TopologyService" cardinality="1..1" policy="static" bind="bindTopologyService" unbind="unbindTopologyService"/>
+    </scr:component>
+</components>

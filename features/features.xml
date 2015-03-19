@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  ~ Copyright 2014 Open Networking Laboratory
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+          name="onos-@FEATURE-VERSION">
+    <repository>mvn:org.onosproject/onos-features/@ONOS-VERSION/xml/features</repository>
+
+    <feature name="onos-thirdparty-base" version="@FEATURE-VERSION"
+             description="ONOS 3rd party dependencies">
+        <bundle>mvn:commons-lang/commons-lang/2.6</bundle>
+        <bundle>mvn:org.apache.commons/commons-lang3/3.3.2</bundle>
+        <bundle>mvn:com.google.guava/guava/18.0</bundle>
+        <bundle>mvn:io.netty/netty/3.9.2.Final</bundle>
+        <bundle>mvn:io.netty/netty-common/4.0.23.Final</bundle>
+        <bundle>mvn:io.netty/netty-buffer/4.0.23.Final</bundle>
+        <bundle>mvn:io.netty/netty-transport/4.0.23.Final</bundle>
+        <bundle>mvn:io.netty/netty-handler/4.0.23.Final</bundle>
+        <bundle>mvn:io.netty/netty-codec/4.0.23.Final</bundle>
+        <bundle>mvn:io.netty/netty-transport-native-epoll/4.0.23.Final</bundle>
+        <bundle>mvn:commons-pool/commons-pool/1.6</bundle>
+
+        <bundle>mvn:joda-time/joda-time/2.5</bundle>
+
+        <bundle>mvn:com.hazelcast/hazelcast/3.3.2</bundle>
+        <bundle>mvn:io.dropwizard.metrics/metrics-core/3.1.0</bundle>
+        <bundle>mvn:io.dropwizard.metrics/metrics-json/3.1.0</bundle>
+        <bundle>mvn:com.eclipsesource.minimal-json/minimal-json/0.9.1</bundle>
+
+        <bundle>mvn:com.esotericsoftware/kryo/3.0.0</bundle>
+        <bundle>mvn:com.esotericsoftware/reflectasm/1.10.0</bundle>
+        <bundle>mvn:org.ow2.asm/asm/4.2</bundle>
+        <bundle>mvn:com.esotericsoftware/minlog/1.3.0</bundle>
+        <bundle>mvn:org.objenesis/objenesis/2.1</bundle>
+
+        <bundle>mvn:org.onosproject/onlab-nio/@ONOS-VERSION</bundle>
+
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.4.2</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.4.2</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.4.2</bundle>
+
+        <!-- FIXME: we should switch to use fasterxml jackson -->
+        <bundle>mvn:org.codehaus.jackson/jackson-core-asl/1.9.13</bundle>
+        <bundle>mvn:org.codehaus.jackson/jackson-mapper-asl/1.9.13</bundle>
+
+        <bundle>mvn:org.onosproject/onlab-thirdparty/@ONOS-VERSION</bundle>
+
+        <bundle>mvn:org.mapdb/mapdb/1.0.6</bundle>
+    </feature>
+
+    <feature name="onos-thirdparty-web" version="@FEATURE-VERSION"
+             description="ONOS 3rd party dependencies">
+        <feature>war</feature>
+        <feature>onos-thirdparty-base</feature>
+        <bundle>mvn:com.sun.jersey/jersey-core/1.18.1</bundle>
+        <bundle>mvn:com.sun.jersey/jersey-server/1.18.1</bundle>
+        <bundle>mvn:com.sun.jersey/jersey-servlet/1.18.1</bundle>
+    </feature>
+
+    <feature name="onos-api" version="@FEATURE-VERSION"
+             description="ONOS services and model API">
+        <feature>scr</feature>
+        <feature>onos-thirdparty-base</feature>
+        <bundle>mvn:org.onosproject/onlab-misc/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onlab-osgi/@ONOS-VERSION</bundle>
+
+        <bundle>mvn:org.onosproject/onos-api/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-core" version="@FEATURE-VERSION"
+             description="ONOS core components">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-core-net/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-core-dist/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-core-serializers/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onlab-netty/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-core-trivial" version="@FEATURE-VERSION"
+             description="ONOS core components">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-core-net/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-core-trivial/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-rest" version="@FEATURE-VERSION"
+             description="ONOS REST API components">
+        <feature>onos-api</feature>
+        <feature>onos-thirdparty-web</feature>
+        <bundle>mvn:org.onosproject/onlab-rest/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-rest/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-gui" version="@FEATURE-VERSION"
+             description="ONOS GUI console components">
+        <feature>onos-api</feature>
+        <feature>onos-thirdparty-web</feature>
+        <bundle>mvn:org.eclipse.jetty/jetty-websocket/8.1.15.v20140411</bundle>
+        <bundle>mvn:org.onosproject/onlab-rest/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-gui/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-cli" version="@FEATURE-VERSION"
+             description="ONOS admin command console components">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-cli/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-openflow" version="@FEATURE-VERSION"
+             description="ONOS OpenFlow API, Controller &amp; Providers">
+        <feature>onos-api</feature>
+        <bundle>mvn:io.netty/netty/3.9.2.Final</bundle>
+        <bundle>mvn:org.onosproject/onos-of-api/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-of-drivers/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-of-ctl/@ONOS-VERSION</bundle>
+
+        <bundle>mvn:org.onosproject/onos-lldp-provider/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-host-provider/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-of-provider-device/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-of-provider-packet/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-of-provider-flow/@ONOS-VERSION</bundle>
+
+    </feature>
+
+    <feature name="onos-app-tvue" version="@FEATURE-VERSION"
+             description="ONOS sample topology viewer application">
+        <feature>onos-api</feature>
+        <feature>onos-thirdparty-web</feature>
+        <bundle>mvn:org.onosproject/onlab-rest/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-app-tvue/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-fwd" version="@FEATURE-VERSION"
+             description="ONOS sample forwarding application">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-fwd/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-ifwd" version="@FEATURE-VERSION"
+             description="ONOS sample forwarding application using intents">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-ifwd/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-mobility" version="@FEATURE-VERSION"
+             description="ONOS sample mobility application">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-mobility/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-proxyarp" version="@FEATURE-VERSION"
+             description="ONOS sample proxyarp application">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-proxyarp/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-foo" version="@FEATURE-VERSION"
+             description="ONOS sample playground application">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-foo/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onlab-netty/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-config" version="@FEATURE-VERSION"
+             description="ONOS network config reader">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-config/@ONOS-VERSION</bundle>
+    </feature>
+   
+     <feature name="onos-app-optical" version="@FEATURE-VERSION"
+             description="ONOS optical network config">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-optical/@ONOS-VERSION</bundle>
+     </feature>
+
+    <feature name="onos-app-sdnip" version="@FEATURE-VERSION"
+             description="SDN-IP peering application">
+        <feature>onos-api</feature>
+        <feature>onos-app-proxyarp</feature>
+        <feature>onos-app-config</feature>
+        <bundle>mvn:org.onosproject/onos-app-sdnip/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-calendar" version="@FEATURE-VERSION"
+             description="REST interface for scheduling intents from an external calendar">
+        <feature>onos-api</feature>
+        <feature>onos-thirdparty-web</feature>
+        <bundle>mvn:org.onosproject/onos-app-calendar/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-metrics" version="@FEATURE-VERSION"
+             description="ONOS metrics applications">
+        <feature>onos-app-metrics-intent</feature>
+        <feature>onos-app-metrics-topology</feature>
+    </feature>
+
+    <feature name="onos-app-metrics-intent" version="@FEATURE-VERSION"
+             description="ONOS intent metrics application">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-metrics-intent/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-metrics-topology" version="@FEATURE-VERSION"
+             description="ONOS topology metrics application">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-metrics-topology/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-demo" version="@FEATURE-VERSION"
+             description="ONOS demo applications">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onlab-misc/@ONOS-VERSION</bundle>
+        <bundle>mvn:org.onosproject/onos-app-demo/@ONOS-VERSION</bundle>
+    </feature>
+
+    <feature name="onos-app-election" version="1.0.0"
+             description="ONOS app leadership election test">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-election/@ONOS-VERSION</bundle>
+    </feature>
+
+</features>

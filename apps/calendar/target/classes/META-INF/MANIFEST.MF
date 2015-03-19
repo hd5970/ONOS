@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738323737
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-ClassPath: WEB-INF/classes
+Bundle-Description: ONOS simple calendaring REST interface for intents
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-app-calendar
+Bundle-SymbolicName: org.onosproject.onos-app-calendar
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.onosproject.calendar;uses:="javax.ws.rs,javax.ws.rs.
+ core,org.onlab.rest,org.onosproject.core";version="1.0.1"
+Import-Package: org.slf4j;version="[1.7,2)",javax.ws.rs;version="[1.1,2)
+ ",javax.ws.rs.core;version="[1.1,2)",org.onlab.rest;version="[1.0,2)",o
+ rg.onosproject.core;version="[1.0,2)",org.onosproject.event;version="[1
+ .0,2)",org.onosproject.net;version="[1.0,2)",org.onosproject.net.flow;v
+ ersion="[1.0,2)",org.onosproject.net.intent;version="[1.0,2)",org.osgi.
+ framework;version="[1.6,2)",com.sun.jersey.spi.container.servlet;versio
+ n="[1.18,2)",com.sun.jersey.server.impl.container.servlet;version="[1.1
+ 8,2)",com.sun.jersey.api.core
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-2.3.0.201405100607
+Web-ContextPath: /onos/calendar

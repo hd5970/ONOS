@@ -1,0 +1,12 @@
+#!/bin/bash
+# -----------------------------------------------------------------------------
+# Starts ONOS Apache Karaf container
+# -----------------------------------------------------------------------------
+
+#export JAVA_HOME=${JAVA_HOME:-/usr/lib/jvm/java-7-openjdk-amd64/}
+export JAVA_OPTS="${JAVA_OPTS:--Xms256m -Xmx2048m}"
+
+ONOS_HOME=/opt/onos
+
+[ -d $ONOS_HOME ] && cd $ONOS_HOME || ONOS_HOME=$(dirname $0)/..
+${ONOS_HOME}/apache-karaf-$KARAF_VERSION/bin/karaf "$@"

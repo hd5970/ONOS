@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738329558
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: ONOS OpenFlow protocol packet provider
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-of-provider-packet
+Bundle-SymbolicName: org.onosproject.onos-of-provider-packet
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Import-Package: org.onlab.packet,org.onosproject.net;version="[1.0,2)",o
+ rg.onosproject.net.flow;version="[1.0,2)",org.onosproject.net.flow.inst
+ ructions;version="[1.0,2)",org.onosproject.net.packet;version="[1.0,2)"
+ ,org.onosproject.net.provider;version="[1.0,2)",org.onosproject.openflo
+ w.controller;version="[1.0,2)",org.projectfloodlight.openflow.protocol;
+ version="[1.0,2)",org.projectfloodlight.openflow.protocol.action;versio
+ n="[1.0,2)",org.projectfloodlight.openflow.protocol.ver10;version="[1.0
+ ,2)",org.projectfloodlight.openflow.types;version="[1.0,2)",org.slf4j;v
+ ersion="[1.7,2)"
+Require-Capability: osgi.service;effective:=active;filter:="(objectClass
+ =org.onosproject.net.packet.PacketProviderRegistry)",osgi.service;effec
+ tive:=active;filter:="(objectClass=org.onosproject.openflow.controller.
+ OpenFlowController)",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/org.onosproject.provider.of.packet.impl.Open
+ FlowPacketProvider.xml
+Tool: Bnd-2.3.0.201405100607

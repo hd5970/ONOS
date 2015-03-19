@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="false" name="org.onosproject.store.service.impl.DatabaseManager" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.service.impl.DatabaseManager"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.store.service.DatabaseService"/>
+            <provide interface="org.onosproject.store.service.DatabaseAdminService"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.service.impl.DatabaseManager"/>
+        <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+        <reference name="clusterCommunicator" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindClusterCommunicator" unbind="unbindClusterCommunicator"/>
+        <reference name="copycatMessagingProtocol" interface="org.onosproject.store.service.impl.DatabaseProtocolService" cardinality="1..1" policy="static" bind="bindCopycatMessagingProtocol" unbind="unbindCopycatMessagingProtocol"/>
+    </scr:component>
+</components>

@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738321511
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: ONOS simple proxy arp module
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-app-proxyarp
+Bundle-SymbolicName: org.onosproject.onos-app-proxyarp
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.onosproject.proxyarp;uses:="org.onosproject.core,org
+ .onosproject.net.packet,org.onosproject.net.proxyarp";version="1.0.1"
+Import-Package: org.onosproject.core;version="[1.0,2)",org.onosproject.n
+ et.packet;version="[1.0,2)",org.onosproject.net.proxyarp;version="[1.0,
+ 2)",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.service;effective:=active;filter:="(objectClass
+ =org.onosproject.net.packet.PacketService)",osgi.service;effective:=act
+ ive;filter:="(objectClass=org.onosproject.core.CoreService)",osgi.servi
+ ce;effective:=active;filter:="(objectClass=org.onosproject.net.proxyarp
+ .ProxyArpService)",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/org.onosproject.proxyarp.ProxyArp.xml
+Tool: Bnd-2.3.0.201405100607

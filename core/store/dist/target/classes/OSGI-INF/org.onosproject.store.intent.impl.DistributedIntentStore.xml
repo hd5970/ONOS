@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component enabled="false" immediate="true" name="org.onosproject.store.intent.impl.DistributedIntentStore" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.intent.impl.DistributedIntentStore"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.intent.IntentStore"/>
+            <provide interface="org.onosproject.store.Store"/>
+            <provide interface="org.onosproject.core.MetricsHelper"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.intent.impl.DistributedIntentStore"/>
+        <reference name="dbAdminService" interface="org.onosproject.store.service.DatabaseAdminService" cardinality="1..1" policy="static" bind="bindDbAdminService" unbind="unbindDbAdminService"/>
+        <reference name="dbService" interface="org.onosproject.store.service.DatabaseService" cardinality="1..1" policy="static" bind="bindDbService" unbind="unbindDbService"/>
+        <reference name="metricsService" interface="org.onlab.metrics.MetricsService" cardinality="1..1" policy="static" bind="bindMetricsService" unbind="unbindMetricsService"/>
+    </scr:component>
+</components>

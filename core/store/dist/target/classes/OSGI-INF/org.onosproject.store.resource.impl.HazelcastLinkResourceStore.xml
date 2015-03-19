@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component enabled="true" immediate="true" name="org.onosproject.store.resource.impl.HazelcastLinkResourceStore" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.resource.impl.HazelcastLinkResourceStore"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.resource.LinkResourceStore"/>
+            <provide interface="org.onosproject.store.Store"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.resource.impl.HazelcastLinkResourceStore"/>
+        <reference name="linkService" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLinkService" unbind="unbindLinkService"/>
+        <reference name="storeService" interface="org.onosproject.store.hz.StoreService" cardinality="1..1" policy="static" bind="bindStoreService" unbind="unbindStoreService"/>
+    </scr:component>
+</components>

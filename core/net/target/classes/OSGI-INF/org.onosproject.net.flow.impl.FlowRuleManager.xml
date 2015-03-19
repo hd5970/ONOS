@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.net.flow.impl.FlowRuleManager" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.net.flow.impl.FlowRuleManager"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.flow.FlowRuleService"/>
+            <provide interface="org.onosproject.net.flow.FlowRuleProviderRegistry"/>
+            <provide interface="org.onosproject.net.provider.ProviderRegistry"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.net.flow.impl.FlowRuleManager"/>
+        <reference name="store" interface="org.onosproject.net.flow.FlowRuleStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+        <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+        <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    </scr:component>
+</components>

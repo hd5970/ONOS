@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.store.host.impl.GossipHostStore" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.host.impl.GossipHostStore"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.host.HostStore"/>
+            <provide interface="org.onosproject.store.Store"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.host.impl.GossipHostStore"/>
+        <reference name="hostClockService" interface="org.onosproject.net.host.HostClockService" cardinality="1..1" policy="static" bind="bindHostClockService" unbind="unbindHostClockService"/>
+        <reference name="clusterCommunicator" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindClusterCommunicator" unbind="unbindClusterCommunicator"/>
+        <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    </scr:component>
+</components>

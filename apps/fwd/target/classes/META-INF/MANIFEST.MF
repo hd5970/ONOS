@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738322079
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: ONOS simple reactive forwarding app
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-app-fwd
+Bundle-SymbolicName: org.onosproject.onos-app-fwd
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.onosproject.fwd;uses:="org.onosproject.core,org.onos
+ project.net.flow,org.onosproject.net.host,org.onosproject.net.packet,or
+ g.onosproject.net.topology,org.osgi.service.component";version="1.0.1"
+Import-Package: org.onlab.packet;version="[1.0,2)",org.onosproject.core;
+ version="[1.0,2)",org.onosproject.net;version="[1.0,2)",org.onosproject
+ .net.flow;version="[1.0,2)",org.onosproject.net.host;version="[1.0,2)",
+ org.onosproject.net.packet;version="[1.0,2)",org.onosproject.net.topolo
+ gy;version="[1.0,2)",org.osgi.service.component;version="[1.2,2)",org.s
+ lf4j;version="[1.7,2)"
+Require-Capability: osgi.service;effective:=active;filter:="(objectClass
+ =org.onosproject.net.packet.PacketService)",osgi.service;effective:=act
+ ive;filter:="(objectClass=org.onosproject.net.flow.FlowRuleService)",os
+ gi.service;effective:=active;filter:="(objectClass=org.onosproject.net.
+ host.HostService)",osgi.service;effective:=active;filter:="(objectClass
+ =org.onosproject.net.topology.TopologyService)",osgi.service;effective:
+ =active;filter:="(objectClass=org.onosproject.core.CoreService)",osgi.e
+ e;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/org.onosproject.fwd.ReactiveForwarding.xml
+Tool: Bnd-2.3.0.201405100607

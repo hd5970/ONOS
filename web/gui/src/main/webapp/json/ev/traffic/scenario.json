@@ -1,0 +1,17 @@
+{
+  "comments": [
+    "Stepping through showTraffic"
+  ],
+  "title": "Show Traffic Scenario",
+  "params": {
+    "lastAuto": 14
+  },
+  "description": [
+    "Figure out primary, secondary and animated link visualizations.",
+    "",
+    "Press 'H' to show hosts.",
+    "",
+    "Press '=' to load initial events.",
+    "Press '-' to fire further events."
+  ]
+}

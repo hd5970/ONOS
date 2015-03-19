@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="false" name="org.onosproject.store.service.impl.DistributedLockManager" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.service.impl.DistributedLockManager"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.store.service.LockService"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.service.impl.DistributedLockManager"/>
+        <reference name="clusterCommunicator" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindClusterCommunicator" unbind="unbindClusterCommunicator"/>
+        <reference name="databaseAdminService" interface="org.onosproject.store.service.DatabaseAdminService" cardinality="1..1" policy="static" bind="bindDatabaseAdminService" unbind="unbindDatabaseAdminService"/>
+        <reference name="databaseService" interface="org.onosproject.store.service.DatabaseService" cardinality="1..1" policy="static" bind="bindDatabaseService" unbind="unbindDatabaseService"/>
+        <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    </scr:component>
+</components>

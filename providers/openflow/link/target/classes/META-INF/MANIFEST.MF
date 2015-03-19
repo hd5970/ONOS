@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738329777
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: ONOS OpenFlow protocol link provider
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-of-provider-link
+Bundle-SymbolicName: org.onosproject.onos-of-provider-link
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Import-Package: org.jboss.netty.util;version="[3.9,4)",org.onlab.packet,
+ org.onlab.util,org.onosproject.net;version="[1.0,2)",org.onosproject.ne
+ t.link;version="[1.0,2)",org.onosproject.net.provider;version="[1.0,2)"
+ ,org.onosproject.openflow.controller;version="[1.0,2)",org.projectflood
+ light.openflow.protocol;version="[1.0,2)",org.projectfloodlight.openflo
+ w.protocol.action;version="[1.0,2)",org.projectfloodlight.openflow.type
+ s;version="[1.0,2)",org.slf4j;version="[1.7,2)"
+Require-Capability: osgi.service;effective:=active;filter:="(objectClass
+ =org.onosproject.net.link.LinkProviderRegistry)",osgi.service;effective
+ :=active;filter:="(objectClass=org.onosproject.openflow.controller.Open
+ FlowController)",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/org.onosproject.provider.of.link.impl.OpenFl
+ owLinkProvider.xml
+Tool: Bnd-2.3.0.201405100607

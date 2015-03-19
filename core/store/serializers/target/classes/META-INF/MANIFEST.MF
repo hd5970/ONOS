@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738322427
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: Serializers for ONOS classes
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-core-serializers
+Bundle-SymbolicName: org.onosproject.onos-core-serializers
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.onosproject.store.serializers;uses:="com.esotericsof
+ tware.kryo,com.esotericsoftware.kryo.io,com.google.common.base,com.goog
+ le.common.collect,org.onlab.packet,org.onlab.util,org.onosproject.clust
+ er,org.onosproject.core,org.onosproject.mastership,org.onosproject.net,
+ org.onosproject.net.packet,org.onosproject.net.provider";version="1.0.1
+ "
+Import-Package: com.esotericsoftware.kryo;version="[3.0,4)",com.esoteric
+ software.kryo.io;version="[3.0,4)",com.esotericsoftware.kryo.serializer
+ s;version="[3.0,4)",com.google.common.base;version="[18.0,19)",com.goog
+ le.common.collect;version="[18.0,19)",org.onlab.packet;version="[1.0,2)
+ ",org.onlab.util;version="[1.0,2)",org.onosproject.cluster;version="[1.
+ 0,2)",org.onosproject.core;version="[1.0,2)",org.onosproject.mastership
+ ;version="[1.0,2)",org.onosproject.net;version="[1.0,2)",org.onosprojec
+ t.net.device;version="[1.0,2)",org.onosproject.net.flow;version="[1.0,2
+ )",org.onosproject.net.flow.criteria;version="[1.0,2)",org.onosproject.
+ net.flow.instructions;version="[1.0,2)",org.onosproject.net.host;versio
+ n="[1.0,2)",org.onosproject.net.intent;version="[1.0,2)",org.onosprojec
+ t.net.intent.constraint;version="[1.0,2)",org.onosproject.net.link;vers
+ ion="[1.0,2)",org.onosproject.net.packet;version="[1.0,2)",org.onosproj
+ ect.net.provider;version="[1.0,2)",org.onosproject.net.resource;version
+ ="[1.0,2)",org.onosproject.store,org.onosproject.store.service;version=
+ "[1.0,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-2.3.0.201405100607

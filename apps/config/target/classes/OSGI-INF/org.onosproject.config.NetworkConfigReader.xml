@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.config.NetworkConfigReader" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.config.NetworkConfigReader"/>
+        <property name="service.pid" value="org.onosproject.config.NetworkConfigReader"/>
+        <reference name="hostAdminService" interface="org.onosproject.net.host.HostAdminService" cardinality="1..1" policy="static" bind="bindHostAdminService" unbind="unbindHostAdminService"/>
+    </scr:component>
+</components>

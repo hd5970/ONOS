@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.net.statistic.impl.StatisticManager" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.net.statistic.impl.StatisticManager"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.statistic.StatisticService"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.net.statistic.impl.StatisticManager"/>
+        <reference name="flowRuleService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowRuleService" unbind="unbindFlowRuleService"/>
+        <reference name="statisticStore" interface="org.onosproject.net.statistic.StatisticStore" cardinality="1..1" policy="static" bind="bindStatisticStore" unbind="unbindStatisticStore"/>
+    </scr:component>
+</components>

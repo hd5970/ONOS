@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738323952
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Blueprint: OSGI-INF/blueprint/shell-config.xml
+Bundle-Description: ONOS app leadership election test
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-app-election
+Bundle-SymbolicName: org.onosproject.onos-app-election
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.onosproject.election.cli;uses:="org.apache.karaf.she
+ ll.commands,org.onosproject.cli";version="1.0.1",org.onosproject.electi
+ on;uses:="org.onosproject.cluster,org.onosproject.core";version="1.0.1"
+Import-Package: org.apache.karaf.shell.commands;version="[3.0,4)",org.on
+ osproject.cli;version="[1.0,2)",org.onosproject.cluster;version="[1.0,2
+ )",org.onosproject.core;version="[1.0,2)",org.onosproject.event;version
+ ="[1.0,2)",org.osgi.service.blueprint;version="[1.0.0,2.0.0)",org.slf4j
+ ;version="[1.7,2)"
+Require-Capability: osgi.service;effective:=active;filter:="(objectClass
+ =org.onosproject.cluster.ClusterService)",osgi.service;effective:=activ
+ e;filter:="(objectClass=org.onosproject.cluster.LeadershipService)",osg
+ i.service;effective:=active;filter:="(objectClass=org.onosproject.core.
+ CoreService)",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/org.onosproject.election.ElectionTest.xml
+Tool: Bnd-2.3.0.201405100607

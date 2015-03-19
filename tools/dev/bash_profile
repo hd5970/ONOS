@@ -1,0 +1,118 @@
+#!/bin/bash
+# ONOS developer BASH profile conveniences
+# Simply include in your own .bash_aliases or .bash_profile
+
+# Root of the ONOS source tree
+export ONOS_ROOT=${ONOS_ROOT:-~/Volumes/OS/JavaWorkSpace/onos}
+
+# Setup some environmental context for developers
+if [ -z "${JAVA_HOME}" ]; then
+    if [ -x /usr/libexec/java_home ]; then
+        export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+    elif [ -d /usr/lib/jvm/java-8-oracle ]; then
+        export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+    elif [ -d /usr/lib/jvm/java-7-openjdk-amd64 ]; then
+        export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
+    fi
+fi
+
+export MAVEN=${MAVEN:-~/Applications/apache-maven-3.2.3}
+
+export KARAF_VERSION=${KARAF_VERSION:-3.0.2}
+export KARAF_ROOT=${KARAF_ROOT:-~/Applications/apache-karaf-$KARAF_VERSION}
+export KARAF_LOG=$KARAF_ROOT/data/log/karaf.log
+
+# Setup a path
+export PATH="$PATH:$ONOS_ROOT/tools/dev/bin:$ONOS_ROOT/tools/test/bin"
+export PATH="$PATH:$ONOS_ROOT/tools/build"
+export PATH="$PATH:$MAVEN/bin:$KARAF_ROOT/bin"
+
+# Convenience utility to warp to various ONOS source projects
+# e.g. 'o api', 'o dev', 'o'
+function o {
+    cd $(find $ONOS_ROOT/ -type d | egrep -v '\.git|target|gen-src' | \
+        egrep "${1:-$ONOS_ROOT}" | egrep -v "$ONOS_ROOT/.+/src/" | head -n 1)
+}
+
+# Short-hand for 'mvn clean install' for us lazy folk
+alias mci='mvn clean install'
+alias mcis='mvn clean install -DskipTests -Dcheckstyle.skip -U -T 1C'
+alias mis='mvn install -DskipTests -Dcheckstyle.skip -U -T 1C'
+
+# Short-hand for ONOS build, package and test.
+alias ob='onos-build'
+alias obi='onos-build -Dmaven.test.failure.ignore=true'
+alias obs='onos-build-selective'
+alias obd='onos-build-docs'
+alias op='onos-package'
+alias ot='onos-test'
+alias ol='onos-log'
+alias ow='onos-watch'
+alias oi='setPrimaryInstance'
+alias go='ob && ot && onos -w'
+alias pub='onos-push-update-bundle'
+
+# Short-hand for tailing the ONOS (karaf) log 
+alias tl='$ONOS_ROOT/tools/dev/bin/onos-local-log'
+alias tlo='tl | grep --colour=always -E -e "org.onlab|org.onosproject"'
+alias ll='less $KARAF_LOG'
+
+# Pretty-print JSON output
+alias pp='python -m json.tool'
+
+# Short-hand to launch API docs and sample topology viewer GUI
+alias docs='open $ONOS_ROOT/docs/target/site/apidocs/index.html'
+alias gui='onos-gui'
+
+
+# Test related conveniences
+
+# SSH to a specified ONOS instance
+alias sshctl='onos-ssh'
+alias sshnet='onos-ssh $OCN'
+
+# Applies the settings in the specified cell file or lists current cell definition
+# if no cell file is given.
+function cell {
+    if [ -n "$1" ]; then
+        [ ! -f $ONOS_ROOT/tools/test/cells/$1 ] && \
+            echo "No such cell: $1" >&2 && return 1
+        unset ONOS_CELL ONOS_NIC ONOS_FEATURES
+        unset OC0 OC1 OC2 OC3 OC4 OC5 OC6 OC7 OC8 OC9 OCN OCI
+        export ONOS_CELL=$1
+        . $ONOS_ROOT/tools/test/cells/$1
+        cell
+    else
+        env | egrep "ONOS_CELL"
+        env | egrep "OCI"
+        env | egrep "OC[0-9]+" | sort
+        env | egrep "OCN"
+        env | egrep "ONOS_" | egrep -v 'ONOS_ROOT|ONOS_CELL'
+    fi
+}
+
+cell local >/dev/null  # Default cell is the local VMs
+
+# Lists available cells
+function cells {
+    for cell in $(ls -1 $ONOS_ROOT/tools/test/cells); do
+        printf "%-12s  %s\n" \
+            "$([ $cell = $ONOS_CELL ] && echo $cell '*' || echo $cell)" \
+            "$(grep '^#' $ONOS_ROOT/tools/test/cells/$cell | head -n 1)"
+    done
+}
+
+# Sets the primary instance to the specified instance number.
+function setPrimaryInstance {
+    export OCI=$(env | egrep "OC[0-9]+" | sort | egrep OC${1:-1} | cut -d= -f2)
+    echo $OCI
+}
+
+# Miscellaneous
+function spy {
+    ps -ef | egrep "$@" | grep -v egrep
+}
+
+function nuke {
+    spy "$@" | cut -c7-11 | xargs kill
+}

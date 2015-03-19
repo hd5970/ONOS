@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component enabled="false" name="org.onosproject.store.cluster.impl.LeadershipManager" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.store.cluster.impl.LeadershipManager"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.cluster.LeadershipService"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.store.cluster.impl.LeadershipManager"/>
+        <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+        <reference name="clusterCommunicator" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindClusterCommunicator" unbind="unbindClusterCommunicator"/>
+        <reference name="lockService" interface="org.onosproject.store.service.LockService" cardinality="1..1" policy="static" bind="bindLockService" unbind="unbindLockService"/>
+    </scr:component>
+</components>

@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1425738318860
+Build-Jdk: 1.8.0_25
+Built-By: hd5970
+Bundle-Description: ONOS LLDP Link Discovery
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: onos-lldp-provider
+Bundle-SymbolicName: org.onosproject.onos-lldp-provider
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Import-Package: com.google.common.base;version="[18.0,19)",org.jboss.net
+ ty.util;version="[3.9,4)",org.onlab.packet;version="[1.0,2)",org.onlab.
+ util;version="[1.0,2)",org.onosproject.core;version="[1.0,2)",org.onosp
+ roject.event;version="[1.0,2)",org.onosproject.mastership;version="[1.0
+ ,2)",org.onosproject.net;version="[1.0,2)",org.onosproject.net.device;v
+ ersion="[1.0,2)",org.onosproject.net.flow;version="[1.0,2)",org.onospro
+ ject.net.link;version="[1.0,2)",org.onosproject.net.packet;version="[1.
+ 0,2)",org.onosproject.net.provider;version="[1.0,2)",org.slf4j;version=
+ "[1.7,2)"
+Require-Capability: osgi.service;effective:=active;filter:="(objectClass
+ =org.onosproject.net.flow.FlowRuleService)",osgi.service;effective:=act
+ ive;filter:="(objectClass=org.onosproject.net.packet.PacketService)",os
+ gi.service;effective:=active;filter:="(objectClass=org.onosproject.net.
+ link.LinkProviderRegistry)",osgi.service;effective:=active;filter:="(ob
+ jectClass=org.onosproject.net.device.DeviceService)",osgi.service;effec
+ tive:=active;filter:="(objectClass=org.onosproject.core.CoreService)",o
+ sgi.service;effective:=active;filter:="(objectClass=org.onosproject.mas
+ tership.MastershipService)",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version
+ =1.8))"
+Service-Component: OSGI-INF/org.onosproject.provider.lldp.impl.LLDPLinkP
+ rovider.xml
+Tool: Bnd-2.3.0.201405100607

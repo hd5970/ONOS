@@ -1,0 +1,14 @@
+#!/bin/bash
+# -----------------------------------------------------------------------------
+# ONOS remote command-line client.
+# -----------------------------------------------------------------------------
+
+[ ! -d "$ONOS_ROOT" ] && echo "ONOS_ROOT is not defined" >&2 && exit 1
+. $ONOS_ROOT/tools/build/envDefaults
+. $ONOS_ROOT/tools/test/bin/find-node.sh
+
+[ "$1" = "-w" ] && shift && onos-wait-for-start $1
+
+[ -n "$1" ] && OCI=$(find_node $1) && shift
+unset KARAF_HOME
+client -h $OCI -u karaf "$@" 2>/dev/null

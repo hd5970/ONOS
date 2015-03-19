@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="org.onosproject.net.topology.impl.PathManager" activate="activate" deactivate="deactivate">
+        <implementation class="org.onosproject.net.topology.impl.PathManager"/>
+        <service servicefactory="false">
+            <provide interface="org.onosproject.net.topology.PathService"/>
+        </service>
+        <property name="service.pid" value="org.onosproject.net.topology.impl.PathManager"/>
+        <reference name="topologyService" interface="org.onosproject.net.topology.TopologyService" cardinality="1..1" policy="static" bind="bindTopologyService" unbind="unbindTopologyService"/>
+        <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    </scr:component>
+</components>
